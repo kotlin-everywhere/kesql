@@ -56,3 +56,13 @@ class DateType : ColumnType<Date>() {
         return Date(resultSet.getTimestamp(i).time)
     }
 }
+
+class UuidType : ColumnType<UUID>() {
+    override fun setValue(statement: PreparedStatement, index: Int, value: Any) {
+        statement.setObject(index, value)
+    }
+
+    override fun getValue(resultSet: ResultSet, i: Int): Any {
+        return resultSet.getObject(i, UUID::class.java)
+    }
+}

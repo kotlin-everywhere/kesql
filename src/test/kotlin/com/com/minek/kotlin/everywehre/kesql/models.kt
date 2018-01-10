@@ -8,6 +8,7 @@ import com.minek.kotlin.everywehre.kesql.table.Table
 import com.minek.kotlin.everywehre.kesql.types.DateType
 import com.minek.kotlin.everywehre.kesql.types.IntType
 import com.minek.kotlin.everywehre.kesql.types.StringType
+import com.minek.kotlin.everywehre.kesql.types.UuidType
 
 object User : Table() {
     val id = Column(IntType(), primaryKey = true)
@@ -38,8 +39,12 @@ class Author : Model() {
     }
 }
 
-public val db: Database = object : Database() {
+object Types: Table() {
+    val uuid = Column(UuidType())
+}
+
+val db: Database = object : Database() {
     init {
-        addTables(listOf(User, Empty, Author))
+        addTables(listOf(User, Empty, Author, Types))
     }
 }
