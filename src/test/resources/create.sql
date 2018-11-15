@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS "user", empty, author, types_ CASCADE;
+DROP TABLE IF EXISTS "user", empty, author, type_table CASCADE;
 
 CREATE TABLE "user" (
   id         SERIAL PRIMARY KEY,
@@ -26,10 +26,10 @@ INSERT INTO author (name) VALUES ('Stephen King'), ('Umberto Eco');
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE types_
+CREATE TABLE type_table
 (
   uuid UUID NOT NULL
 );
 
-INSERT INTO types_ (uuid) VALUES ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11');
+INSERT INTO type_table (uuid) VALUES ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11');
 

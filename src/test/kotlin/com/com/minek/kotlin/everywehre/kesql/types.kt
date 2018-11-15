@@ -31,7 +31,7 @@ class TypeTest {
         val uuid = UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11")
         Assert.assertEquals(
                 setOf(uuid),
-                Query(Types.uuid).filter(Types.uuid eq uuid).all().map { it.component1() }.toSet()
+                Query(TypeTable.uuid).filter(TypeTable.uuid eq uuid).all().map { it.component1() }.toSet()
         )
     }
 }

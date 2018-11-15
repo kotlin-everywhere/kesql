@@ -39,12 +39,12 @@ class Author : Model() {
     }
 }
 
-object Types: Table() {
+object TypeTable: Table() {
     val uuid = Column(UuidType())
 }
 
 val db: Database = object : Database() {
     init {
-        addTables(listOf(User, Empty, Author, Types))
+        addTables(listOf(User, Empty, Author, TypeTable))
     }
 }
